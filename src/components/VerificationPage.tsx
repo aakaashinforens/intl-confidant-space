@@ -14,7 +14,8 @@ import {
   FileText, 
   CreditCard,
   Sparkles,
-  AlertCircle
+  AlertCircle,
+  Bot
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
@@ -55,13 +56,14 @@ const VerificationPage = () => {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-4">
+      <div className="min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-background to-muted">
+        <div className="absolute inset-0 overflow-hidden inforens-pattern"></div>
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
         
-        <Card className="glass-card p-8 max-w-md mx-auto text-center relative z-10">
+        <Card className="warm-card p-8 max-w-md mx-auto text-center relative z-10 border border-primary/20">
           <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
             <Clock className="w-8 h-8 text-primary" />
           </div>
@@ -75,9 +77,18 @@ const VerificationPage = () => {
           <Badge variant="secondary" className="mb-6 bg-primary/20 text-primary border-primary/30">
             Status: Under Review
           </Badge>
+          <div className="warm-card p-4 mb-6 rounded-lg border border-primary/20">
+            <div className="flex items-center justify-center mb-2">
+              <Bot className="w-5 h-5 text-primary mr-2" />
+              <span className="font-medium text-primary">Norry says:</span>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              "While you wait, feel free to explore our community guidelines and get excited about connecting with students worldwide!"
+            </p>
+          </div>
           <div className="space-y-3">
             <Button 
-              variant="glass" 
+              variant="warm" 
               className="w-full"
               onClick={() => navigate('/')}
             >
@@ -91,10 +102,11 @@ const VerificationPage = () => {
   }
 
   return (
-    <div className="min-h-screen py-8 px-4">
+    <div className="min-h-screen py-8 px-4 bg-gradient-to-br from-background to-muted">
+      <div className="absolute inset-0 overflow-hidden inforens-pattern"></div>
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 right-1/3 w-72 h-72 bg-secondary/20 rounded-full blur-3xl animate-pulse delay-500"></div>
-        <div className="absolute bottom-1/3 left-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-0 right-1/3 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute bottom-1/3 left-0 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
       </div>
 
       <div className="relative z-10 container mx-auto max-w-2xl">
@@ -109,7 +121,9 @@ const VerificationPage = () => {
             Back
           </Button>
           <div className="flex items-center justify-center mb-4">
-            <Sparkles className="w-6 h-6 text-accent mr-2" />
+            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center mr-3">
+              <Sparkles className="w-4 h-4 text-white" />
+            </div>
             <h1 className="text-3xl font-bold gradient-text">Student Verification</h1>
           </div>
           <p className="text-muted-foreground">
@@ -127,7 +141,7 @@ const VerificationPage = () => {
           </div>
         </div>
 
-        <Card className="glass-card p-6">
+        <Card className="warm-card p-6 border border-primary/20">
           {step === 1 && (
             <div className="space-y-6">
               <div className="text-center mb-6">
@@ -143,7 +157,7 @@ const VerificationPage = () => {
                     value={formData.fullName}
                     onChange={(e) => handleInputChange("fullName", e.target.value)}
                     placeholder="Enter your full name"
-                    className="glass-card border-glass-border"
+                    className="warm-card border-primary/20"
                   />
                 </div>
                 
@@ -155,7 +169,7 @@ const VerificationPage = () => {
                     value={formData.email}
                     onChange={(e) => handleInputChange("email", e.target.value)}
                     placeholder="your.email@university.edu"
-                    className="glass-card border-glass-border"
+                    className="warm-card border-primary/20"
                   />
                 </div>
                 
@@ -166,14 +180,14 @@ const VerificationPage = () => {
                     value={formData.bio}
                     onChange={(e) => handleInputChange("bio", e.target.value)}
                     placeholder="Tell us a bit about yourself, your interests, hobbies..."
-                    className="glass-card border-glass-border"
+                    className="warm-card border-primary/20"
                     rows={3}
                   />
                 </div>
               </div>
               
               <Button 
-                variant="gradient" 
+                variant="inforens" 
                 className="w-full"
                 onClick={() => setStep(2)}
                 disabled={!formData.fullName || !formData.email}
@@ -198,7 +212,7 @@ const VerificationPage = () => {
                     value={formData.university}
                     onChange={(e) => handleInputChange("university", e.target.value)}
                     placeholder="e.g., University of Toronto"
-                    className="glass-card border-glass-border"
+                    className="warm-card border-primary/20"
                   />
                 </div>
                 
@@ -210,7 +224,7 @@ const VerificationPage = () => {
                       value={formData.studyCountry}
                       onChange={(e) => handleInputChange("studyCountry", e.target.value)}
                       placeholder="e.g., Canada"
-                      className="glass-card border-glass-border"
+                      className="warm-card border-primary/20"
                     />
                   </div>
                   
@@ -221,7 +235,7 @@ const VerificationPage = () => {
                       value={formData.homeCountry}
                       onChange={(e) => handleInputChange("homeCountry", e.target.value)}
                       placeholder="e.g., India"
-                      className="glass-card border-glass-border"
+                      className="warm-card border-primary/20"
                     />
                   </div>
                 </div>
@@ -233,7 +247,7 @@ const VerificationPage = () => {
                     value={formData.course}
                     onChange={(e) => handleInputChange("course", e.target.value)}
                     placeholder="e.g., Computer Science"
-                    className="glass-card border-glass-border"
+                    className="warm-card border-primary/20"
                   />
                 </div>
                 
@@ -243,7 +257,7 @@ const VerificationPage = () => {
                     id="studentStatus"
                     value={formData.studentStatus}
                     onChange={(e) => handleInputChange("studentStatus", e.target.value)}
-                    className="w-full p-3 rounded-md glass-card border border-glass-border bg-transparent text-foreground"
+                    className="w-full p-3 rounded-md warm-card border border-primary/20 bg-transparent text-foreground"
                   >
                     <option value="" className="bg-background">Select status</option>
                     <option value="current" className="bg-background">Current Student</option>
@@ -255,14 +269,14 @@ const VerificationPage = () => {
               
               <div className="flex gap-3">
                 <Button 
-                  variant="glass" 
+                  variant="warm" 
                   className="flex-1"
                   onClick={() => setStep(1)}
                 >
                   Back
                 </Button>
                 <Button 
-                  variant="gradient" 
+                  variant="inforens" 
                   className="flex-1"
                   onClick={() => setStep(3)}
                   disabled={!formData.university || !formData.studyCountry || !formData.homeCountry || !formData.course || !formData.studentStatus}
@@ -281,13 +295,13 @@ const VerificationPage = () => {
               </div>
               
               <div className="space-y-4">
-                <div className="border-2 border-dashed border-glass-border rounded-lg p-6 text-center">
+                <div className="border-2 border-dashed border-primary/30 rounded-lg p-6 text-center warm-card">
                   <CreditCard className="w-12 h-12 text-primary mx-auto mb-3" />
                   <h3 className="font-medium mb-2">Student ID or Passport</h3>
                   <p className="text-sm text-muted-foreground mb-4">
                     Upload a clear photo of your student ID card or passport
                   </p>
-                  <Button variant="glass" size="sm">
+                  <Button variant="warm" size="sm">
                     <Upload className="w-4 h-4 mr-2" />
                     Choose File
                   </Button>
@@ -299,18 +313,18 @@ const VerificationPage = () => {
                   )}
                 </div>
                 
-                <div className="border-2 border-dashed border-glass-border rounded-lg p-6 text-center">
-                  <FileText className="w-12 h-12 text-secondary mx-auto mb-3" />
+                <div className="border-2 border-dashed border-primary/30 rounded-lg p-6 text-center warm-card">
+                  <FileText className="w-12 h-12 text-accent mx-auto mb-3" />
                   <h3 className="font-medium mb-2">Additional Student Document</h3>
                   <p className="text-sm text-muted-foreground mb-4">
                     Enrollment letter, transcript, or any official student document
                   </p>
-                  <Button variant="glass" size="sm">
+                  <Button variant="warm" size="sm">
                     <Upload className="w-4 h-4 mr-2" />
                     Choose File
                   </Button>
                   {formData.studentId && (
-                    <div className="mt-2 flex items-center justify-center text-sm text-secondary">
+                    <div className="mt-2 flex items-center justify-center text-sm text-accent">
                       <CheckCircle className="w-4 h-4 mr-1" />
                       File uploaded
                     </div>
@@ -333,14 +347,14 @@ const VerificationPage = () => {
               
               <div className="flex gap-3">
                 <Button 
-                  variant="glass" 
+                  variant="warm" 
                   className="flex-1"
                   onClick={() => setStep(2)}
                 >
                   Back
                 </Button>
                 <Button 
-                  variant="gradient" 
+                  variant="inforens" 
                   className="flex-1"
                   onClick={handleSubmit}
                 >

@@ -2,52 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Inforens Student Community Design System - Gen Z Vibes 🎉 
+/* Inforens Student Community Design System - Inspired by Inforens.com 
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 100%;
+    --foreground: 20 14% 20%;
 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14% 20%;
 
-    --popover: 240 5% 6%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14% 20%;
 
-    /* Vibrant purple-blue gradient theme */
-    --primary: 270 91% 65%;
+    /* Inforens orange-brown theme */
+    --primary: 25 95% 53%;
     --primary-foreground: 0 0% 98%;
-    --primary-glow: 280 100% 75%;
+    --primary-dark: 20 100% 40%;
 
-    --secondary: 240 100% 70%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 20 30% 85%;
+    --secondary-foreground: 20 14% 20%;
 
-    --muted: 240 5% 15%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 20 15% 95%;
+    --muted-foreground: 20 14% 45%;
 
-    --accent: 315 100% 70%;
+    --accent: 30 100% 60%;
     --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 6% 20%;
-    --input: 240 6% 15%;
-    --ring: 270 91% 65%;
+    --border: 20 30% 90%;
+    --input: 20 30% 95%;
+    --ring: 25 95% 53%;
 
     /* Custom design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(270 91% 65%), hsl(240 100% 70%));
-    --gradient-accent: linear-gradient(135deg, hsl(315 100% 70%), hsl(280 100% 75%));
-    --gradient-bg: linear-gradient(135deg, hsl(240 10% 3.9%) 0%, hsl(250 12% 6%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(25 95% 53%), hsl(30 100% 60%));
+    --gradient-warm: linear-gradient(135deg, hsl(20 100% 40%) 0%, hsl(25 95% 53%) 100%);
+    --gradient-bg: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(20 30% 98%) 100%);
     
-    --glass-bg: hsla(240, 10%, 10%, 0.7);
-    --glass-border: hsla(270, 91%, 65%, 0.2);
+    --warm-bg: hsla(20, 30%, 98%, 0.8);
+    --warm-border: hsla(25, 95%, 53%, 0.2);
     
-    --glow-primary: 0 0 40px hsl(270 91% 65% / 0.3);
-    --glow-accent: 0 0 60px hsl(315 100% 70% / 0.4);
+    --glow-orange: 0 0 40px hsl(25 95% 53% / 0.3);
+    --shadow-warm: 0 10px 30px -10px hsl(25 95% 53% / 0.2);
     
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -123,11 +123,11 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  .glass-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glow-primary);
+  .warm-card {
+    background: var(--warm-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--warm-border);
+    box-shadow: var(--shadow-warm);
   }
   
   .gradient-text {
@@ -153,8 +153,14 @@ All colors MUST be HSL.
   }
   
   .hover-glow:hover {
-    box-shadow: var(--glow-accent);
+    box-shadow: var(--glow-orange);
     transform: translateY(-2px);
     transition: var(--transition-bounce);
+  }
+  
+  .inforens-pattern {
+    background-image: radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0);
+    background-size: 20px 20px;
+    opacity: 0.1;
   }
 }
